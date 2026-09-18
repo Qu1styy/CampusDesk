@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -10,38 +10,30 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
             crossorigin="anonymous"></script>
-    <title>Department it MVC</title>
+    <title>CampusDesk</title>
 </head>
 <body>
 
 <header>
     <div class="container mt-2">
         <div class="card shadow col-md-14">
-    <div class="container">
-        <header class="py-3">
-            <ul class="nav nav-pills">
-                <li class="nav-item"><a href="<?= app()->route->getUrl('/') ?>" class="nav-link active"
-                                        aria-current="page">Главная</a></li>
-                <?php
-                if (!app()->auth::check()):
-                    ?>
-                    <li class="nav-item"><a href="<?= app()->route->getUrl('/signup') ?>"
-                                            class="nav-link">Регистрация</a></li>
-                    <li class="nav-item"><a href="<?= app()->route->getUrl('/login') ?>" class="nav-link">Вход</a></li>
-                <?php
-                else:
-                    ?>
-
-                    <li class="nav-item "><a href="<?= app()->route->getUrl('/profile') ?>" class="nav-link">Профиль (<?= app()->auth::user()->name ?>)</a>
-                    </li>
-                    <li class="ms-auto"><a href="<?= app()->route->getUrl('/logout') ?>" class="btn btn-danger">Выйти</a></li>
-
-                <?php
-                endif;
-                ?>
-            </ul>
-        </header>
-    </div>
+            <div class="container">
+                <header class="py-3">
+                    <div class="h4 mb-3">CampusDesk</div>
+                    <ul class="nav nav-pills">
+                        <li class="nav-item"><a href="<?= app()->route->getUrl('/') ?>" class="nav-link active"
+                                                 aria-current="page">Главная</a></li>
+                        <?php if (!app()->auth::check()): ?>
+                            <li class="nav-item"><a href="<?= app()->route->getUrl('/signup') ?>"
+                                                     class="nav-link">Регистрация</a></li>
+                            <li class="nav-item"><a href="<?= app()->route->getUrl('/login') ?>" class="nav-link">Вход</a></li>
+                        <?php else: ?>
+                            <li class="nav-item"><a href="<?= app()->route->getUrl('/profile') ?>" class="nav-link">Профиль (<?= app()->auth::user()->name ?>)</a></li>
+                            <li class="ms-auto"><a href="<?= app()->route->getUrl('/logout') ?>" class="btn btn-danger">Выйти</a></li>
+                        <?php endif; ?>
+                    </ul>
+                </header>
+            </div>
         </div>
     </div>
 </header>
